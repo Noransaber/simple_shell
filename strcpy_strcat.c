@@ -18,8 +18,8 @@ char *my_strcpy(char *to_dest, char *from_scr)
 		my_counter++;
 	}
 	to_dest[my_counter] = 0;
+	return (to_dest);
 }
-
 #include "shell.h"
 /**
  * my_strcat - function concatenate two strings togwther

@@ -8,6 +8,8 @@
  **/
 int main(int argc, char *argv[], char *envp[])
 {
+	(void)argc;
+	(void)argv;
 	if (isatty(STDIN_FILENO))
 	{
 		char *u_input_line;

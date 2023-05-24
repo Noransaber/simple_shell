@@ -7,7 +7,9 @@
  */
 int create_pipes(int pipefd[][2], int num_pipes)
 {
-	for (int i = 0; i < num_pipes; i++)
+	int i;
+
+	for (i = 0; i < num_pipes; i++)
 	{
 		if (pipe(pipefd[i]) == -1)
 		{
@@ -25,7 +27,8 @@ int create_pipes(int pipefd[][2], int num_pipes)
  */
 void free_commands(char *commands[], int num_commands)
 {
-	for (int i = 0; i < num_commands; i++)
+	int i;
+	for (i = 0; i < num_commands; i++)
 	{
 		free(commands[i]);
 	}

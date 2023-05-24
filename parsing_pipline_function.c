@@ -7,7 +7,8 @@
 **/
 char **parse_pipeline_commands(char *pipeline, int *num_commands)
 {
-	char *token;
+	int i = 0;
+	char *token = strtok(pipeline, "|");
 	char **commands = malloc(MAX_COMMANDS * sizeof(char *));
 
 	if (commands == NULL)
@@ -16,9 +17,6 @@ char **parse_pipeline_commands(char *pipeline, int *num_commands)
 		*num_commands = 0;
 		return (NULL);
 	}
-	token = strtok(pipeline, "|");
-	int i = 0;
-
 	while (token != NULL && i < MAX_COMMANDS)
 	{
 		commands[i] = strdup(token);

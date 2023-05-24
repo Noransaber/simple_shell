@@ -15,7 +15,7 @@
 #define PATH_FOUND 1
 #define PATH_NOT_FOUND 0
 
-int main(void);
+int main();
 
 int handle_command(char *command, char *envp[]);
 

@@ -4,7 +4,7 @@
  * hanlde closing the cmd, wait, free cmds
  * @pipeline: line input from the user
  * @envp: array of env var
- * Return: integer value
+ * Return: 
 */
 int run_shell(char *pipeline, char *envp[])
 {
@@ -24,8 +24,6 @@ int run_shell(char *pipeline, char *envp[])
 		handle_error("Invalid pipeline command");
 		return (1);
 	}
-	pipefd = [num_commands - 1][2];
-
 	for (i = 0; i < num_commands - 1; i++)
 	{
 		if (pipe(pipefd[i]) == -1)
@@ -35,9 +33,8 @@ int run_shell(char *pipeline, char *envp[])
 			return (1);
 		}
 	}
-
 	execute_commands(commands, num_commands, pipefd, envp);
-	close_pipes(&pipefd[0][0], num_commands - 1);
+	close_pipes(pipefd, num_commands - 1);
 	wait_for_children(num_commands);
 	return (0);
 }

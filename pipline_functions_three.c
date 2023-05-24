@@ -10,7 +10,9 @@
 void execute_commands(char *commands[], int num_commands,
 		int pipefd[][2], char *envp[])
 {
-	for (int i = 0; i < num_commands; i++)
+	int i;
+
+	for (i = 0; i < num_commands; i++)
 	{
 		pid_t pid = fork();
 
@@ -40,4 +42,3 @@ void execute_commands(char *commands[], int num_commands,
 		}
 	}
 }
-

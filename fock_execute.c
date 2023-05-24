@@ -20,7 +20,7 @@ void fork_execute_function(char **array_string, char *env[])
 		{
 			if (execve(array_string[0], array_string, env) == -1)
 		{
-			fprintf(stderr, "./shell: %s: No file or directory\n", array_string[0]);
+			fprintf(stderr, "./shell: No such file or directory\n");
 			_exit(EXIT_FAILURE);
 		}
 	}

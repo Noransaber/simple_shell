@@ -1,51 +1,64 @@
 #include "shell.h"
 /**
- * main - the entry point of the program
- * @argc: represent the count of argimants we recieve
- * @argv: vector, array of arguments
- * @envp: array of enviromental vaiables
- * Return: integer number represet the success of the program
+ * main - entry point to the program
+ * @argc: the number of arguments
+ * @argv: array of arguments
+ * @envp: array of environmental variables
+ * Return: Exit SUCCESS
  **/
 int main(int argc, char *argv[], char *envp[])
 {
 	(void)argc;
 	(void)argv;
-	if (isatty(STDIN_FILENO))
+
+	if(isatty(STDTN_FILENO))
 	{
 		char *u_input_line;
 		size_t input_size_line = 0;
 		ssize_t char_read;
 
-	while (1)
-	{
-		printf(";) ");
-		u_input_line = NULL;
-		char_read = read_input(&u_input_line, &input_size_line);
-
-	if (char_read < 0)
-	{
-		perror("read_input");
-		free(u_input_line);
-		continue;
-	}
-		if (*u_input_line != '\n')
+		while (1)
 		{
-			handle_input(u_input_line, envp);
+			printf(";) ");
+			u_input_line = NULL;
+			char_read = read_input(&u_input_line, &input_size_line);
+
+			if (char_read < 0)
+			{
+				perror("read)input");
+				free(u_input_line);
+				continue;
+			}
+			if (*u_input_line != '\n')
+			{
+				system_cust(u_input_line, STDIN_FILENO);
+			}
+			free(u_input_line);
 		}
-	free(u_input_line);
-	}
 	}
 	else
 	{
-	char input[100];
-	ssize_t char_read;
+		char input[100];
+		ssize_t char_read;
+		int pipe_fd[2];
 
-	while ((char_read = read(STDIN_FILENO, input, sizeof(input))) > 0)
-	{
-		input[strcspn(input, "\n")] = '\0';
-		handle_input(input, envp);
-	}
-	}
-
-	exit(EXIT_SUCCESS);
+		if (pipe(pipe_fd) == -1)
+		{
+			perror("pipe");
+			exit(EXIT_FAILURE);
+		}
+		while ((char_read = read(STDIN_FILENO, input, sizeof(input))) > 0)
+		{
+			input[strcspn(input, "\n")] = '\0';
+			if (write(pipe_fd[1], input, my_strlen(input)) == -1)
+			{
+				perror("write");
+				exit(EXIT_FAILURE);
+			}
+		system_cust(input, pipe_fd[0]);
+		}
+	close(pipe_fd[1]);
+	close(pipe_fd[0]);
+}
+exit(EXIT_SUCCESS);
 }

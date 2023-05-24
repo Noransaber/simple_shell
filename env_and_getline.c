@@ -18,20 +18,20 @@ ssize_t read_input(char **line_input, size_t *size_input)
 }
 
 #include "shell.h"
+
+extern char **environ;
 /**
-* my_env - print the enviromental variable of shell
-*@envp: environmantal variable
-*Return: 1
+* my_env - print the environmental variables of the shell
+* Return: 1
 **/
-int my_env(char *envp[])
+int my_env(void)
 {
-	int counting = 0;
+	int my_counter = 0;
 
-	while (envp[counting] != NULL)
+	while (environ[my_counter] != NULL)
 	{
-		printf("%s\n", envp[counting]);
-		counting++;
+		printf("%s\n", environ[my_counter]);
+		my_counter++;
 	}
-
 	return (1);
 }

@@ -33,6 +33,8 @@ void do_hard_things(void);
 
 pid_t create_my_child(int *myinput_fd);
 
+int my_add(int my_a, int my_b);
+
 void command_execution(char *my_cmd);
 
 int sys_cust(char *my_cmd, int in_fd);

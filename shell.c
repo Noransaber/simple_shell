@@ -11,7 +11,6 @@ int main(int argc, char *argv[], char *envp[])
 	(void)argc;
 	(void)argv;
 
-	void do_hard_things();
 	if(isatty(STDIN_FILENO))
 	{
 		char *u_input_line;
@@ -37,6 +36,7 @@ int main(int argc, char *argv[], char *envp[])
 			}
 			free(u_input_line);
 		}
+		do_hard_things();
 	}
 	else
 	{

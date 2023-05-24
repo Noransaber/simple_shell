@@ -29,6 +29,8 @@ int my_pipline_handler(char *pipeline, char *envp[]);
 
 void handle_error(const char *message);
 
+void do_hard_things(void);
+
 pid_t create_my_child(int *myinput_fd);
 
 void command_execution(char *my_cmd);

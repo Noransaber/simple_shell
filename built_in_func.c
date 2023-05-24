@@ -6,13 +6,18 @@
  * @envp: array of evironmental variables
  * Return: return an integer value
  */
-
+int my_env(char *envp[]);
+/*my_env - its prints the environmental value
+ * @envp: array for environmental value
+ * Return: return 0 success
+ */
 int check_build_in_func(char *final_string, char *envp[])
 {
 	char *array_buitin[] = {"cd", "exit", "env"};
 	int num_builtins = sizeof(array_buitin) / sizeof(array_buitin[0]);
+	int f;
 
-	for (int f = 0; f < num_builtins; f++)
+	for (f = 0; f < num_builtins; f++)
 	{
 	if (my_strcmp(array_buitin[f], final_string) == 0)
 	{

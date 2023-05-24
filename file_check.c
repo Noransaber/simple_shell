@@ -7,6 +7,7 @@
 char *file_check(char *final_string)
 {
 	DIR *in_dir = opendir("/bin/");
+	struct dirent *entir_struct;
 
 	if (in_dir == NULL)
 	{
@@ -14,7 +15,6 @@ char *file_check(char *final_string)
 		return (NULL);
 	}
 
-	struct dirent *entir_struct;
 
 	while ((entir_struct = readdir(in_dir)) != NULL)
 	{

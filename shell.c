@@ -6,12 +6,12 @@
  * @envp: array of environmental variables
  * Return: Exit SUCCESS
  **/
-int main(int argc, char *argv[], char *envp[])
+int main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
 
-	if(isatty(STDTN_FILENO))
+	if(isatty(STDIN_FILENO))
 	{
 		char *u_input_line;
 		size_t input_size_line = 0;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[], char *envp[])
 			}
 			if (*u_input_line != '\n')
 			{
-				system_cust(u_input_line, STDIN_FILENO);
+				sys_cust(u_input_line, STDIN_FILENO);
 			}
 			free(u_input_line);
 		}
@@ -55,7 +55,7 @@ int main(int argc, char *argv[], char *envp[])
 				perror("write");
 				exit(EXIT_FAILURE);
 			}
-		system_cust(input, pipe_fd[0]);
+		sys_cust(input, pipe_fd[0]);
 		}
 	close(pipe_fd[1]);
 	close(pipe_fd[0]);

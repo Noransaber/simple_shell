@@ -14,7 +14,7 @@ pid_t create_my_child(int *myinput_fd)
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-	else if (my_pid == -)
+	else if (my_pid == -1)
 	{
 		if (dup2(*myinput_fd, STDIN_FILENO) == -1)
 		{

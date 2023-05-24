@@ -8,7 +8,7 @@ int wait_for_my_child(pid_t my_child)
 {
 	int wstatus;
 
-	if (watpid(my_child, &wstatus, 0) == -1)
+	if (waitpid(my_child, &wstatus, 0) == -1)
 	{
 		perror("wait");
 		exit(EXIT_FAILURE);
@@ -16,7 +16,7 @@ int wait_for_my_child(pid_t my_child)
 
 	if (WIFEXITED(wstatus))
 	{
-		return (WEXISTATUS(wstatus));
+		return (WEXITSTATUS(wstatus));
 	}
 	else if (WIFSIGNALED(wstatus))
 	{

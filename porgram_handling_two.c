@@ -26,16 +26,12 @@ void command_execution(char *my_cmd)
 int sys_cust(char *my_cmd, int in_fd)
 {
 	int exit_stat;
-	pid_t my_child = create_my_child(&in_fd)
+	pid_t my_child = create_my_child(&in_fd);
 
 	if (my_child == 0)
 	{
 		command_execution(my_cmd);
 	}
-	else
-	{
-		exit_stat = wait_for_my_child(my_child);
-		return (exit_stat);
-	}
-	return (-1);
+	exit_stat = wait_for_my_child(my_child);
+	return (exit_stat);
 }

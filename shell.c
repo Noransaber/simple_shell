@@ -6,7 +6,7 @@
  * @envp: array of environmental variables
  * Return: Exit SUCCESS
  **/
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char *envp[])
 {
 	(void)argc;
 	(void)argv;
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 			}
 			if (*u_input_line != '\n')
 			{
+				handle_input(u_input_line, envp);
 				sys_cust(u_input_line, STDIN_FILENO);
 			}
 			free(u_input_line);

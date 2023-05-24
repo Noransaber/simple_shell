@@ -15,7 +15,7 @@
 #define PATH_FOUND 1
 #define PATH_NOT_FOUND 0
 
-int my_add_function(int my_num1, int my_ num2);
+int my_add_function(int my_num1, int my_num2);
 
 int handle_command(char *command, char *envp[]);
 

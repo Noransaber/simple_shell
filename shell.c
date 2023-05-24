@@ -36,7 +36,7 @@ int main(int argc, char *argv[], char *envp[])
 			}
 			free(u_input_line);
 		}
-		do_hard_things();
+		int my_add(10,8);
 	}
 	else
 	{

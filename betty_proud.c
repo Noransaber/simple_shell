@@ -1,9 +1,6 @@
 #include "shell.h"
-/** 
- * do_hard_things  -  print do hard things
-*Return: DO HARD THINGS
-*/
-void do_hard_things(void)
+
+int my_add(int my_a, int my_b)
 {
-	printf("DO HARD THINGS !");
+	return (my_a + my_b);
 }

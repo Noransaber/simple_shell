@@ -29,6 +29,14 @@ int my_pipline_handler(char *pipeline, char *envp[]);
 
 void handle_error(const char *message);
 
+pid_t create_my_child(int *myinput_fd);
+
+void command_execution(char *my_cmd);
+
+int sys_cust(char *my_cmd, int in_fd);
+
+int wait_for_my_child(pid_t my_child);
+
 int create_pipes(int pipefd[][2], int num_pipes);
 
 void free_commands(char *commands[], int num_commands);

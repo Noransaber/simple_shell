@@ -6,7 +6,7 @@
 *
 *Return: the result which is the sum of two numbers
 */
-int my_add_function (int my_num1, int my_ num2)
+int my_add_function(int my_num1, int my_num2)
 {
 	return (my_num1 + my_num2);
 }

@@ -17,7 +17,7 @@ char *my_dubler(char *str)
 	if (!my_dub)
 		return (NULL);
 	for (mystr_length++; mystr_length--;)
-		dub[mystr_length] = *--str;
+		dup[mystr_length] = *--str;
 	return (my_dub);
 }
 

@@ -8,7 +8,8 @@
 */
 int run_shell(char *pipeline, char *envp[])
 {
-	int num_commands = 0;
+	int num_commands = 0, i;
+	int pipefd[MAX_COMMANDS - 1][2];
 	char *commands[MAX_COMMANDS];
 	char *token;
 
@@ -23,9 +24,9 @@ int run_shell(char *pipeline, char *envp[])
 		handle_error("Invalid pipeline command");
 		return (1);
 	}
-	int pipefd[num_commands - 1][2];
+	pipefd = [num_commands - 1][2];
 
-	for (int i = 0; i < num_commands - 1; i++)
+	for (i = 0; i < num_commands - 1; i++)
 	{
 		if (pipe(pipefd[i]) == -1)
 		{
@@ -36,7 +37,7 @@ int run_shell(char *pipeline, char *envp[])
 	}
 
 	execute_commands(commands, num_commands, pipefd, envp);
-	close_pipes(pipefd, num_commands - 1);
+	close_pipes(&pipefd[0][0], num_commands - 1);
 	wait_for_children(num_commands);
 	return (0);
 }

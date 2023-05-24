@@ -14,28 +14,36 @@ int main(int argc, char *argv[], char *envp[])
 		size_t input_size_line = 0;
 		ssize_t char_read;
 
-		while (1)
+	while (1)
+	{
+		printf(";) ");
+		u_input_line = NULL;
+		char_read = read_input(&u_input_line, &input_size_line);
+
+	if (char_read < 0)
+	{
+		perror("read_input");
+		free(u_input_line);
+		continue;
+	}
+		if (*u_input_line != '\n')
 		{
-			printf(";) ");
-			u_input_line = NULL;
-			char_read = read_input(&u_input_line, &input_size_line);
-			if (*u_input_line != '\n')
-			{
-				handle_input(u_input_line, envp);
-			}
-			free(u_input_line);
+			handle_input(u_input_line, envp);
 		}
+	free(u_input_line);
+	}
 	}
 	else
 	{
-		char input[100];
-		ssize_t char_read;
+	char input[100];
+	ssize_t char_read;
 
-		while ((char_read = read(STDIN_FILENO, input, sizeof(input))) > 0)
-		{
-			input[strcspn(input, "\n")] = '\0';
-			handle_input(input, envp);
-		}
+	while ((char_read = read(STDIN_FILENO, input, sizeof(input))) > 0)
+	{
+		input[strcspn(input, "\n")] = '\0';
+		handle_input(input, envp);
 	}
+	}
+
 	exit(EXIT_SUCCESS);
 }

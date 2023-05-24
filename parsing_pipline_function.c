@@ -7,6 +7,7 @@
 **/
 char **parse_pipeline_commands(char *pipeline, int *num_commands)
 {
+	char *token;
 	char **commands = malloc(MAX_COMMANDS * sizeof(char *));
 
 	if (commands == NULL)
@@ -15,7 +16,7 @@ char **parse_pipeline_commands(char *pipeline, int *num_commands)
 		*num_commands = 0;
 		return (NULL);
 	}
-	char *token = strtok(pipeline, "|");
+	token = strtok(pipeline, "|");
 	int i = 0;
 
 	while (token != NULL && i < MAX_COMMANDS)

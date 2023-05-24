@@ -16,7 +16,9 @@ void handle_error(const char *message)
 **/
 void close_pipes(int pipefd[][2], int num_pipes)
 {
-	for (int i = 0; i < num_pipes; i++)
+	int i;
+
+	for (i = 0; i < num_pipes; i++)
 	{
 		close(pipefd[i][0]);
 		close(pipefd[i][1]);
@@ -29,7 +31,9 @@ void close_pipes(int pipefd[][2], int num_pipes)
 **/
 void wait_for_children(int num_commands)
 {
-	for (int i = 0; i < num_commands; i++)
+	int i;
+
+	for (i = 0; i < num_commands; i++)
 	{
 		wait(NULL);
 	}

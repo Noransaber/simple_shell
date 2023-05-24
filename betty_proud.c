@@ -3,8 +3,8 @@
  * main - For making betty proud
  * Return: 0
 **/
-int main()
+int main(void)
 {
 	printf("DO HARD THINGS ;)\n");
-	return 0;
+	return (0);
 }

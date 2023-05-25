@@ -32,7 +32,7 @@ int main(int argc, char *argv[], char *envp[])
 			if (*u_input_line != '\n')
 			{
 				handle_input(u_input_line, envp);
-				sys_cust(u_input_line, STDIN_FILENO);
+				/*sys_cust(u_input_line, STDIN_FILENO);*/
 			}
 			free(u_input_line);
 		}

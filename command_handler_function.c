@@ -34,7 +34,9 @@ int handle_command(char *command, char *envp[])
 		if (value_chpt_func == 1)
 		{
 			status = fork_execute_function(final_string, envp);
-			exit(status);
+			free(value_chfile);
+			free(final_string);
+			return (status);
 		}
 
 	if (value_chfile == NULL && value_chpt_func == 0 && buildin_containter == 0)

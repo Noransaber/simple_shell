@@ -56,7 +56,7 @@ int run_shell(char *pipeline, char *envp[]);
 
 char *my_substr(char *sentence, char *word);
 
-void fork_execute_function(char **array_string, char *env[]);
+pid_t fork_execute_function(char **array_string, char *env[]);
 
 char **string_tokenization(char *str);
 
@@ -77,11 +77,7 @@ char *my_strcpy(char *to, char *from);
 int check_build_in_func(char *final_string, char *envp[]);
 
 char *my_strcat(const char *str1, const char *str2);
-#ifndef SHELL_H
-#define SELL_H
 
 int my_env(char *envp[]);
-
-#endif
 
 #endif

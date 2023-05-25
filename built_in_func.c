@@ -1,15 +1,15 @@
 #include "shell.h"
-
 /**
- * check_build_in_func - checking a built in function
+ * my_env - it prints the environmental value
+ * @envp: array for environmental value
+ * Return: return 0 success
+ */
+int my_env(char *envp[])
+/**
+ * check_build_in_func - checking the string built in function
  * @final_string: input from user
  * @envp: array of evironmental variables
  * Return: return an integer value
- */
-int my_env(char *envp[]);
-/*my_env - its prints the environmental value
- * @envp: array for environmental value
- * Return: return 0 success
  */
 int check_build_in_func(char *final_string, char *envp[])
 {
@@ -26,9 +26,9 @@ int check_build_in_func(char *final_string, char *envp[])
 		case 1:
 			chdir(final_string);
 			return (1);
+
 		case 2:
-			printf("BYE ;)");
-			return (2);
+			exit(EXIT_SUCCESS);
 
 		case 3:
 			my_env(envp);

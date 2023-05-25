@@ -5,7 +5,7 @@
  * @env: parent array environmental variable
  * Return: void
  */
-void fork_execute_function(char **array_string, char *env[])
+pid_t fork_execute_function(char **array_string, char *env[])
 {
 	pid_t my_child_pid;
 	int waiting_status;
@@ -14,7 +14,7 @@ void fork_execute_function(char **array_string, char *env[])
 	if (my_child_pid < 0)
 	{
 		perror("Error: Fork failed");
-		return;
+		return (-1);
 	}
 		if (my_child_pid == 0)
 		{
@@ -31,4 +31,5 @@ void fork_execute_function(char **array_string, char *env[])
 		perror("Error: Wait failed");
 	}
 	}
+	return (my_child_pid);	
 }

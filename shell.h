@@ -78,6 +78,6 @@ int check_build_in_func(char *final_string, char *envp[]);
 
 char *my_strcat(const char *str1, const char *str2);
 
-int my_env(char *envp[]);
+int my_env(void);
 
 #endif

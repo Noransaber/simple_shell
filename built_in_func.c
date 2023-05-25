@@ -4,7 +4,7 @@
  * @envp: array for environmental value
  * Return: return 0 success
  */
-int my_env(char *envp[])
+int my_env(void);
 /**
  * check_build_in_func - checking the string built in function
  * @final_string: input from user
@@ -16,6 +16,7 @@ int check_build_in_func(char *final_string, char *envp[])
 	char *array_buitin[] = {"cd", "exit", "env"};
 	int num_builtins = sizeof(array_buitin) / sizeof(array_buitin[0]);
 	int f;
+	(void)envp;
 
 	for (f = 0; f < num_builtins; f++)
 	{
@@ -31,7 +32,7 @@ int check_build_in_func(char *final_string, char *envp[])
 			exit(EXIT_SUCCESS);
 
 		case 3:
-			my_env(envp);
+			my_env();
 			return (1);
 
 		default:

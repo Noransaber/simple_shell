@@ -31,5 +31,5 @@ pid_t fork_execute_function(char **array_string, char *env[])
 		perror("Error: Wait failed");
 	}
 	}
-	return (my_child_pid);	
+	return WEXITSTATUS(waiting_status);	
 }

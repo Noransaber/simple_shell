@@ -1,17 +1,15 @@
 #include "shell.h"
 /**
  * my_env - it prints the environmental value
- * @envp: array for environmental value
- * Return: return 0 success
+ * Return: return nothing
  */
-int my_env(char *envp[])
+int my_env(void);
 /**
  * check_build_in_func - checking the string built in function
  * @final_string: input from user
- * @envp: array of evironmental variables
  * Return: return an integer value
  */
-int check_build_in_func(char *final_string, char *envp[])
+int check_build_in_func(char *final_string)
 {
 	char *array_buitin[] = {"cd", "exit", "env"};
 	int num_builtins = sizeof(array_buitin) / sizeof(array_buitin[0]);
@@ -31,7 +29,7 @@ int check_build_in_func(char *final_string, char *envp[])
 			exit(EXIT_SUCCESS);
 
 		case 3:
-			my_env(envp);
+			my_env();
 			return (1);
 
 		default:

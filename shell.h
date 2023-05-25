@@ -74,10 +74,10 @@ ssize_t read_input(char **line_input, size_t *size_input);
 
 char *my_strcpy(char *to, char *from);
 
-int check_build_in_func(char *final_string);
+int check_build_in_func(char *final_string, char *envp[]);
 
 char *my_strcat(const char *str1, const char *str2);
 
-int my_env(void);
+int my_env(char *envp[]);
 
 #endif

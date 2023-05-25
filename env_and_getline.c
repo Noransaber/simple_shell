@@ -25,7 +25,7 @@ extern char **environ;
 * @envp: array of environmental variable
 * Return: 1
 **/
-int my_env(void);
+int my_env(char *envp[])
 {
 	int my_counter = 0;
 

@@ -11,11 +11,16 @@
 int handle_command(char *command, char *envp[])
 {
 	char **final_string;
-	int buildin_containter, value_chpt_func;
+	int buildin_containter, value_chpt_func, status;
 	char *value_chfile;
 
 	final_string = string_tokenization(command);
-
+	
+	if (final_string[0] == NULL || final_string[0][0] == '\0')
+	{
+		free(final_string);
+		return (0);
+	}
 	if (my_strcmp("exit", final_string[0]) == 0)
 		exit(EXIT_SUCCESS);
 
@@ -27,7 +32,10 @@ int handle_command(char *command, char *envp[])
 
 	value_chpt_func = path_check_function(final_string[0]);
 		if (value_chpt_func == 1)
-			fork_execute_function(final_string, envp);
+		{
+			status = fork_execute_function(final_string, envp);
+			exit(status);
+		}
 
 	if (value_chfile == NULL && value_chpt_func == 0 && buildin_containter == 0)
 		printf("./shell: No such file or directory\n");

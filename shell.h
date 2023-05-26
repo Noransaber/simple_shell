@@ -22,6 +22,7 @@ void handle_input(char *input, char *envp[]);
 
 #define PIPELINE_MAX_COMMANDS 2
 #define MAX_COMMANDS 10
+
 char **parse_pipeline_commands(char *pipeline, int *num_commands);
 
 int my_pipline_handler(char *pipeline, char *envp[]);
@@ -81,6 +82,6 @@ void my_exit(char **argument);
 
 int my_atoi(char *my_string);
 
-void handle_non_terminal_input(char *envp[]);
+void handle_non_terminal_input(void);
 
 #endif

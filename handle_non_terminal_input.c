@@ -1,7 +1,6 @@
 #include "shell.h"
 /**
  * handle_non_terminal_input - handle any input from non terminal
- * @envp: the env variables
  * Return: nothing
  **/
 void handle_non_terminal_input(void)

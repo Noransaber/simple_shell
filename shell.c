@@ -19,7 +19,7 @@ int main(int argc, char *argv[], char *envp[])
 
 		while (1)
 		{
-			printf(";) ");
+			printf("$ ");
 			u_input_line = NULL;
 			char_read = read_input(&u_input_line, &input_size_line);
 
@@ -32,34 +32,14 @@ int main(int argc, char *argv[], char *envp[])
 			if (*u_input_line != '\n')
 			{
 				handle_input(u_input_line, envp);
-				/*sys_cust(u_input_line, STDIN_FILENO);*/
 			}
 			free(u_input_line);
 		}
 	}
 	else
 	{
-		char input[100];
-		ssize_t char_read;
-		int pipe_fd[2];
+		handle_non_terminal_input(envp);
+	}
 
-		if (pipe(pipe_fd) == -1)
-		{
-			perror("pipe");
-			exit(EXIT_FAILURE);
-		}
-		while ((char_read = read(STDIN_FILENO, input, sizeof(input))) > 0)
-		{
-			input[strcspn(input, "\n")] = '\0';
-			if (write(pipe_fd[1], input, my_strlen(input)) == -1)
-			{
-				perror("write");
-				exit(EXIT_FAILURE);
-			}
-		sys_cust(input, pipe_fd[0]);
-		}
-	close(pipe_fd[1]);
-	close(pipe_fd[0]);
-}
-exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }

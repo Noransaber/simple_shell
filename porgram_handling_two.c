@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * command_execution - excute the cmd
- * *my_cmd: the command
+ * @my_cmd: the command
  * Return: nothind
  **/
 void command_execution(char *my_cmd)

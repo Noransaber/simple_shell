@@ -80,4 +80,8 @@ char *my_strcat(const char *str1, const char *str2);
 
 int my_env(void);
 
+void my_exit(char **argument);
+
+int my_atoi(char *my_string);
+
 #endif

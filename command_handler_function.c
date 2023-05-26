@@ -15,7 +15,7 @@ int handle_command(char *command, char *envp[])
 	char *value_chfile;
 
 	final_string = string_tokenization(command);
-	
+
 	if (final_string[0] == NULL || final_string[0][0] == '\0')
 	{
 		free(final_string);

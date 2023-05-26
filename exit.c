@@ -7,6 +7,7 @@
 void my_exit(char **argument)
 {
 	int my_stat = 0, a;
+
 	if (argument[1] != NULL)
 	{
 		my_stat = my_atoi(argument[1]);

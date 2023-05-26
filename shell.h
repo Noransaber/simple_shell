@@ -81,4 +81,6 @@ void my_exit(char **argument);
 
 int my_atoi(char *my_string);
 
+void handle_non_terminal_input(char *envp[]);
+
 #endif

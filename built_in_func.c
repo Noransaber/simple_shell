@@ -1,14 +1,13 @@
 #include "shell.h"
 /**
  * my_env - it prints the environmental value
- * @envp: array for environmental value
  * Return: return 0 success
  */
 int my_env(void);
 /**
  * check_build_in_func - checking the string built in function
  * @final_string: input from user
- * @envp: array of evironmental variables
+ * @envp: array for environmental variables
  * Return: return an integer value
  */
 int check_build_in_func(char *final_string, char *envp[])

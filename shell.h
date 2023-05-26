@@ -84,4 +84,7 @@ int my_atoi(char *my_string);
 
 void handle_non_terminal_input(void);
 
+extern char **environ;
+
+
 #endif

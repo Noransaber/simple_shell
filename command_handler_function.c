@@ -21,8 +21,8 @@ int handle_command(char *command, char *envp[])
 		free(final_string);
 		return (0);
 	}
-	if (my_strcmp("exit", final_string[0]) == 0)
-		exit(EXIT_SUCCESS);
+	if (my_strcmp("exit", final_string[0] == 0))
+			my_exit(final_string);
 
 	buildin_containter = check_build_in_func(final_string[0], envp);
 	value_chfile = file_check(final_string[0]);

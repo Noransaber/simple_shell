@@ -28,6 +28,7 @@ int create_pipes(int pipefd[][2], int num_pipes)
 void free_commands(char *commands[], int num_commands)
 {
 	int i;
+
 	for (i = 0; i < num_commands; i++)
 	{
 		free(commands[i]);

@@ -4,8 +4,8 @@
  * hanlde closing the cmd, wait, free cmds
  * @pipeline: line input from the user
  * @envp: array of env var
- * Return: 
-*/
+ * Return: 0 on success
+**/
 int run_shell(char *pipeline, char *envp[])
 {
 	int num_commands = 0, i;

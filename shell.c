@@ -11,7 +11,7 @@ int main(int argc, char *argv[], char *envp[])
 	(void)argc;
 	(void)argv;
 
-	if(isatty(STDIN_FILENO))
+	if (isatty(STDIN_FILENO))
 	{
 		char *u_input_line;
 		size_t input_size_line = 0;
@@ -36,7 +36,6 @@ int main(int argc, char *argv[], char *envp[])
 			}
 			free(u_input_line);
 		}
-		printf("%d" ,my_add(10,8));
 	}
 	else
 	{

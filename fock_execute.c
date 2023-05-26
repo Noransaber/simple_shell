@@ -23,15 +23,14 @@ pid_t fork_execute_function(char **array_string, char *env[])
 			fprintf(stderr, "%s: No such file or directory\n", array_string[0]);
 			_exit(EXIT_FAILURE);
 		}
-	}	
+	}
 	else
 	{
 		if (wait(&waiting_status) == -1)
-		{	
+		{
 			perror("Error: Wait failed");
 		}
-			
-		return WEXITSTATUS(waiting_status);
+		return (WEXITSTATUS(waiting_status));
 	}
 	return (-1);
 }

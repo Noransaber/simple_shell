@@ -22,7 +22,6 @@ ssize_t read_input(char **line_input, size_t *size_input)
 extern char **environ;
 /**
 * my_env - print the environmental variables of the shell
-* @envp: array of environmental variable
 * Return: 1
 **/
 int my_env(void)

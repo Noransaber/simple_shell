@@ -38,7 +38,7 @@ int main(int argc, char *argv[], char *envp[])
 	}
 	else
 	{
-		handle_non_terminal_input(envp);
+		handle_non_terminal_input();
 	}
 
 	exit(EXIT_SUCCESS);

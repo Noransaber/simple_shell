@@ -41,7 +41,7 @@ int handle_command(char *command, char *envp[])
 
 	if (value_chfile == NULL && value_chpt_func == 0 && buildin_containter == 0)
 	{
-		printf("./shell: No such file or directory\n");
+		printf("%s: No such file or directory\n", final_string[0]);
 	}
 	free(value_chfile);
 	free(final_string);

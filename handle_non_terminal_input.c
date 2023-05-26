@@ -4,7 +4,7 @@
  * @envp: the env variables
  * Return: nothing
  **/
-void handle_non_terminal_input(char *envp[])
+void handle_non_terminal_input(void)
 {
 	char input[100];
 	ssize_t char_read;

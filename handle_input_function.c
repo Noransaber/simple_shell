@@ -8,7 +8,7 @@
 */
 void handle_input(char *input, char *envp[])
 {
-	if (my_substr(input, "|"))
+	if (!my_substr(input, "|"))
 	{
 		run_shell(input, envp);
 	}

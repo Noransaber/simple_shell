@@ -14,8 +14,7 @@
 #include <stdlib.h>
 #define PATH_FOUND 1
 #define PATH_NOT_FOUND 0
-
-int my_add_function(int my_num1, int my_num2);
+#define _GNU_SOURCE
 
 int handle_command(char *command, char *envp[]);
 
@@ -32,8 +31,6 @@ void handle_error(const char *message);
 void do_hard_things(void);
 
 pid_t create_my_child(int *myinput_fd);
-
-int my_add(int my_a, int my_b);
 
 void command_execution(char *my_cmd);
 

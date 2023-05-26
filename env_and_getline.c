@@ -17,9 +17,7 @@ ssize_t read_input(char **line_input, size_t *size_input)
 		return (char_read);
 }
 
-#include "shell.h"
 
-extern char **environ;
 /**
 * my_env - print the environmental variables of the shell
 * Return: 1
